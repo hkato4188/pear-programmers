@@ -19,10 +19,9 @@ class User(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
     # ✅ Add a column _password_hash
     _password_hash = db.Column(db.String, nullable=False)
-    serialize_rules = ("-groups.members", "-responses.user", "-todo_lists.users",
-                       "-discussion_responses.submitter", "-_password_hash")
 
     # ✅ Create a hybrid_property that will protect the hash from being viewed
+
     @hybrid_property
     def password_hash(self):
         return self._password_hash
