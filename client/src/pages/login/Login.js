@@ -64,7 +64,7 @@ function Login() {
           {signUp ? "Log In!" : "Register now!"}
         </button>
       </div>
-      <h1>Please enter your username or email to log in:</h1>
+      <h1>Enter your username | email to log in:</h1>
       <form className="login-form" onSubmit={postToLoginOrSignup}>
         <label>Username</label>
         <input
