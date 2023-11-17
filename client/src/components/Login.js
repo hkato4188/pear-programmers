@@ -52,21 +52,20 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2 style={{ color: "red" }}>
+    <div className="login-container">
+      <h1 style={{ color: "red" }}>
         {" "}
         {errors ? errors.map((error) => <h5>{error}</h5>) : null}
-      </h2>
+      </h1>
       <div>
-        <h2>Please Log in or Sign up!</h2>
-        <h2>{signUp ? "Already a member?" : "Not a member?"}</h2>
+        <h1>{signUp ? "Already a member?" : "Not a member?"}</h1>
 
         <button onClick={handleClick}>
           {signUp ? "Log In!" : "Register now!"}
         </button>
       </div>
       <h1>Please enter your username or email to log in:</h1>
-      <form onSubmit={postToLoginOrSignup}>
+      <form className="login-form" onSubmit={postToLoginOrSignup}>
         <label>Username</label>
         <input
           type="text"
@@ -95,7 +94,11 @@ function Login() {
             onChange={changeFormState}
           />
         </>
-        <input type="submit" value={signUp ? "Sign Up!" : "Log In!"} />
+        <input
+          className="input-button"
+          type="submit"
+          value={signUp ? "Sign Up!" : "Log In!"}
+        />
       </form>
     </div>
   );
