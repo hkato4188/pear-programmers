@@ -2,8 +2,6 @@
 
 from flask import request
 from flask_restful import Resource
-
-
 from config import app, db, api, request, session, Resource, make_response
 from models import User
 
@@ -65,11 +63,7 @@ class Login (Resource):
         if user and user.authenticate(password):
 
             session['user_id'] = user.id
-
             session.modified = True
-            print(session)
-            print("hk and Phillip test:")
-            print(session['user_id'])
             response = user.to_dict(only=("id", "name", "email")), 200
 
             return response
