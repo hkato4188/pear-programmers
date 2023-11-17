@@ -1,7 +1,86 @@
-:root {
-  --bg: #282c34;
-  --header: #fff;
-  --link: #61dafb;
-  --text: hsla(0, 0%, 100%, 0.88);
+.header {
+  background-color: #190482;
+  color: #c2d9ff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 5%;
 }
 
+.page-border {
+  border: solid black 2px;
+  padding: 10px;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding a subtle shadow effect */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", serif;
+  background-color: #ecf2ff;
+  color: #3e54ac /* White text color */;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding a subtle shadow effect */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  padding-bottom: 5px;
+}
+
+input,
+button {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
+}
+
+input {
+  background-color: #ffff;
+  color: #3e54ac;
+}
+
+button {
+  background-color: #398ab9;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1c658c;
+}
+
+.input-button {
+  background-color: #398ab9;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.input-button:hover {
+  background-color: #1c658c;
+}
