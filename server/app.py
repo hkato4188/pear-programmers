@@ -3,7 +3,7 @@
 from flask import request
 from flask_restful import Resource
 from config import app, db, api, request, session, Resource, make_response
-from models import User
+from models.users import User
 
 
 @app.route('/')

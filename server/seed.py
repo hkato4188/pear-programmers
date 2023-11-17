@@ -5,7 +5,7 @@ from random import randint, choice as rc
 from faker import Faker
 
 from app import app
-from models import db, User
+from server.models.users import db, User
 
 
 def create_users():

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from app import app
-from models import User
+from server.models.users import User
 
 if __name__ == '__main__':
     with app.app_context():
