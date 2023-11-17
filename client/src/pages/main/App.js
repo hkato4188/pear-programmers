@@ -5,8 +5,10 @@ import Header from "./Header";
 function App() {
   return (
     <UserProvider>
-      <Header />
-      <Authenticate />
+      <div className="page-border">
+        <Header />
+        <Authenticate />
+      </div>
     </UserProvider>
   );
 }
