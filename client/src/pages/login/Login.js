@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import { UserContext } from "../context/user";
+import { UserContext } from "../../context/user";
 
 function Login() {
   const { user, updateUser } = useContext(UserContext);

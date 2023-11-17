@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
-import Login from "./Login";
-import About from "./About";
-import { UserContext } from "../context/user";
+import Login from "../login/Login";
+import About from "../about/About";
+import { UserContext } from "../../context/user";
 
 function Main() {
   const { user } = useContext(UserContext);

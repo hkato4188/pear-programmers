@@ -1,6 +1,6 @@
 import React from "react";
-import Authenticate from "./Authenticate";
-import { UserProvider } from "../context/user";
+import Authenticate from "../login/Authenticate";
+import { UserProvider } from "../../context/user";
 import Header from "./Header";
 function App() {
   return (

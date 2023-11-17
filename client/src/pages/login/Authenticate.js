@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { UserContext } from "../context/user";
+import { UserContext } from "../../context/user";
 import Login from "./Login";
-import Main from "./Main";
+import Main from "../main/Main";
 
 function Authenticate() {
   const { user, updateUser } = useContext(UserContext);
