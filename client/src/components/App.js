@@ -1,8 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
-
+import React from "react";
+import Authenticate from "./Authenticate";
+import { UserProvider } from "../context/user";
+import Header from "./Header";
 function App() {
-  return <h1>Project Client</h1>;
+  return (
+    <UserProvider>
+      <Header />
+      <Authenticate />
+    </UserProvider>
+  );
 }
 
 export default App;
