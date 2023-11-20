@@ -1,8 +1,8 @@
-"""create user, list, and todo models and user_todolist table
+"""recreate models
 
-Revision ID: 6c40d85174d0
+Revision ID: dbc601cffb58
 Revises: 
-Create Date: 2023-11-18 10:36:28.968329
+Create Date: 2023-11-20 10:58:17.027638
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '6c40d85174d0'
+revision = 'dbc601cffb58'
 down_revision = None
 branch_labels = None
 depends_on = None
