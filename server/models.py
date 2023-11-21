@@ -95,6 +95,8 @@ class ToDoList(db.Model, SerializerMixin):
     items = db.relationship("ToDo", backref="todo_list", cascade="all, delete")
 
     serialize_rules = ("-items.todo_list", "-users.todo_lists")
+    serialize_only = ("users.id", "users.email", "users.name", "id", "description", "created_at",
+                      "items.id", "items.description", "items.completed", "items.created_at", "items.list_id")
 
     def __repr__(self):
         return f'<List: "{self.description}">'
@@ -119,11 +121,13 @@ class ToDo(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String)
-    completed = db.Column(db.Boolean)
+    completed = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     list_id = db.Column(db.Integer, db.ForeignKey("todo_lists.id"))
 
     serialize_rules = ("-todo_list.items",)
+    serialize_only = ("id", "description", "completed",
+                      "created_at", "list_id")
 
     def __repr__(self):
         return f'<ToDo: "{self.description}">'

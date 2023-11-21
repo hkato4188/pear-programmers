@@ -146,15 +146,28 @@ class ToDoLists(Resource):
 
 
 class ToDoLists_By_Id(Resource):
-    def get(self, id):
-        tdl = ToDo.query.filter(ToDo.list_id == id).all() or ToDoList
+    # def get(self, id):
+    #     tdl = ToDo.query.filter(ToDo.list_id == id).all() or ToDoList
 
-        if tdl:
-            td_dict = [todo.to_dict(
-                only=("id", "description", "completed", "todo_list")) for todo in tdl]
-            return td_dict, 200
+    #     if tdl:
+    #         td_dict = [todo.to_dict(
+    #             only=("id", "description", "completed", "todo_list")) for todo in tdl]
+    #         return td_dict, 200
+    #     else:
+    #         return {"error": "List not found."}, 404
+
+    def get(self, id):
+        list = ToDoList.query.filter(ToDoList.id == id).first()
+        if list:
+            try:
+                list_dict = list.to_dict()
+                return list_dict, 200
+            except:
+                errors = list.validation_errors
+                list.clear_validation_errors()
+                return {"error": errors}, 422
         else:
-            return {"error": "List not found."}, 404
+            return {"error": "List not found"}, 404
 
     def patch(self, id):
         list = ToDoList.query.filter(ToDoList.id == id).first()
@@ -206,7 +219,8 @@ class ToDos(Resource):
         try:
             db.session.add(new_td)
             db.session.commit()
-            todo_dict = new_td.to_dict()
+            todo_dict = new_td.to_dict(
+                only=("id", "description", "completed", "list_id", "created_at"))
             return todo_dict, 201
         except:
             errors = new_td.validation_errors
@@ -247,11 +261,12 @@ class ToDos_By_Id(Resource):
 
     def delete(self, id):
         td = ToDo.query.filter(ToDo.id == id).first()
-        if td:
-            db.session.delete(td)
-            db.session.commit()
-            return {}, 204
-        else:
+        try:
+            if td:
+                db.session.delete(td)
+                db.session.commit()
+                return {}, 204
+        except:
             return {"error": "ToDo item not found"}, 404
 
 
