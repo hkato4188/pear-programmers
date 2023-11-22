@@ -126,6 +126,7 @@ class ToDoLists(Resource):
     def post(Resource):
         data = request.get_json()
         list_description = data.get('description')
+
         new_list = ToDoList(description=list_description)
 
         if new_list.validation_errors:
@@ -146,15 +147,6 @@ class ToDoLists(Resource):
 
 
 class ToDoLists_By_Id(Resource):
-    # def get(self, id):
-    #     tdl = ToDo.query.filter(ToDo.list_id == id).all() or ToDoList
-
-    #     if tdl:
-    #         td_dict = [todo.to_dict(
-    #             only=("id", "description", "completed", "todo_list")) for todo in tdl]
-    #         return td_dict, 200
-    #     else:
-    #         return {"error": "List not found."}, 404
 
     def get(self, id):
         list = ToDoList.query.filter(ToDoList.id == id).first()
