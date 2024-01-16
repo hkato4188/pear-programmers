@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-
 import { UserContext } from "../../context/user";
 
 function Login() {
@@ -53,53 +52,57 @@ function Login() {
 
   return (
     <div className="login-container">
-      <h1 style={{ color: "red" }}>
-        {" "}
-        {errors ? errors.map((error) => <h5>{error}</h5>) : null}
-      </h1>
-      <div>
+      <div className="login-signup-box">
         <h1>{signUp ? "Already a member?" : "Not a member?"}</h1>
 
         <button onClick={handleClick}>
           {signUp ? "Log In!" : "Register now!"}
         </button>
       </div>
-      <h1>Enter your username | email to log in:</h1>
-      <form className="login-form" onSubmit={postToLoginOrSignup}>
-        <label>Username</label>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter email or Username"
-          value={formState.name}
-          onChange={changeFormState}
-        />
-        <>
-          <label>Email</label>
+
+      <div className="box-border">
+        <h1 style={{ color: "red" }}>
+          {" "}
+          {errors ? errors.map((error) => <h5>{error}</h5>) : null}
+        </h1>
+
+        <h1>Enter your username | email to log in:</h1>
+        <form className="login-form" onSubmit={postToLoginOrSignup}>
+          <label>Username</label>
           <input
-            type="email"
-            name="email"
+            type="text"
+            name="name"
             placeholder="Enter email or Username"
-            value={formState.email}
+            value={formState.name}
             onChange={changeFormState}
           />
-        </>
-        <>
-          <label>Password</label>
+          <>
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email or Username"
+              value={formState.email}
+              onChange={changeFormState}
+            />
+          </>
+          <>
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter password"
+              value={formState.password}
+              onChange={changeFormState}
+            />
+          </>
           <input
-            type="password"
-            name="password"
-            placeholder="Enter password"
-            value={formState.password}
-            onChange={changeFormState}
+            className="input-button"
+            type="submit"
+            value={signUp ? "Sign Up!" : "Log In!"}
           />
-        </>
-        <input
-          className="input-button"
-          type="submit"
-          value={signUp ? "Sign Up!" : "Log In!"}
-        />
-      </form>
+        </form>
+      </div>
     </div>
   );
 }

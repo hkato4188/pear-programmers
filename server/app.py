@@ -43,6 +43,7 @@ class Signup (Resource):
 
     # 1.3 Test out your route with the client
 
+
     # 1.1 Use add_resource to add a new endpoint '/signup'
 api.add_resource(Signup, '/signup', endpoint='signup')
 
@@ -126,8 +127,10 @@ class ToDoLists(Resource):
     def post(Resource):
         data = request.get_json()
         list_description = data.get('description')
-
+        uid = data.get('user_id')
         new_list = ToDoList(description=list_description)
+        new_list_owner = User.query.filter(User.id == uid).first()
+        new_list.users.append(new_list_owner)
 
         if new_list.validation_errors:
             errors = new_list.validation_errors
@@ -253,8 +256,12 @@ class ToDos_By_Id(Resource):
 
     def delete(self, id):
         td = ToDo.query.filter(ToDo.id == id).first()
+
         try:
             if td:
+                user_group = td.users
+                for u in user_group:
+                    td.users.remove(u)
                 db.session.delete(td)
                 db.session.commit()
                 return {}, 204
@@ -269,30 +276,31 @@ class EditListOwner (Resource):
         # list = ToDoList(id=data.get('list_id'))
         list_id = data.get('list_id')
         user_id = data.get('user_id')
+
         owner = User.query.filter(User.id == user_id).first()
         list = ToDoList.query.filter(ToDoList.id == list_id).first()
-        list_owner = owner in list.users
+
+        if not owner in list.users:
+            list.users.append(owner)
+            db.session.commit()
+            updatedList_dict = list.to_dict(only=(
+                "id", "description", "created_at", "users.name", "users.email", "users.id", "items"))
+            return updatedList_dict, 200
 
         try:
-
+            list_owner = owner in list.users
             if list_owner:
                 list.users.remove(owner)
-
                 db.session.commit()
                 updatedList_dict = list.to_dict(only=(
                     "id", "description", "created_at", "users.name", "users.email", "users.id", "items"))
                 return updatedList_dict, 200
             else:
-                list.users.append(owner)
-
-                db.session.commit()
-                updatedList_dict = list.to_dict(only=(
-                    "id", "description", "created_at", "users.name", "users.email", "users.id", "items"))
-                return updatedList_dict, 200
-
+                return "unable to implement action"
         except Exception as e:
             print(e)
-            return make_response({"errors": e}, 400)
+            db.session.rollback()
+            return make_response({"errors deleting user group": e}, 500)
 
 
 api.add_resource(EditListOwner, '/edit_list_owner')

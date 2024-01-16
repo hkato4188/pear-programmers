@@ -1,11 +1,12 @@
 import React from "react";
-import Authenticate from "../login/Authenticate";
-import { UserProvider } from "../../context/user";
-import Header from "./Header";
+import Authenticate from "./pages/login/Authenticate";
+import Header from "./pages/main/Header";
+import { UserProvider } from "./context/user";
+
 function App() {
   return (
     <UserProvider>
-      <div className="page-border">
+      <div>
         <Header />
         <Authenticate />
       </div>

@@ -1,48 +1,146 @@
-.header {
-  background-color: #190482;
-  color: #c2d9ff;
-  padding: 30px;
-  text-align: center;
-  border-radius: 5%;
-}
-
-.page-border {
-  border: solid black 2px;
-  padding: 10px;
-}
-
-.header h1 {
-  font-size: 2.5em;
-  margin: 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding a subtle shadow effect */
-}
-
 body {
-  margin: 0;
-  padding: 0;
   font-family: "Lato", serif;
   background-color: #ecf2ff;
-  color: #3e54ac /* White text color */;
+  color: #3e54ac;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+}
+
+/* Pear Styles */
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(5px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.pear {
+  display: inline-block;
+  font-size: 3rem;
+  text-shadow: 1px 1px 2px #ebf3e8;
+}
+
+.pear:hover {
+  animation: shake 0.5s ease infinite;
+  text-shadow: 2px 2px 4px #b0d9b1;
+}
+
+/* Header */
+
+.header {
+  background-color: #27005d;
+  color: #ebf3e8;
+  padding: 30px;
+  text-align: center;
+  border: 10px double #c2d9ff;
+  margin-bottom: 5px;
+  font-size: 2.5em;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding a subtle shadow effect */
+}
+
+.animated-header {
+  text-align: center;
+  padding: 20px;
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* Login */
+
+.box-border {
+  border: solid black 2px;
+  padding: 15px;
+  border-radius: 5%;
+  margin-top: 5px;
 }
 
 .login-container {
+  color: #3e54ac;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
   text-align: center;
 }
 
-h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding a subtle shadow effect */
+.login-signup-box {
+  margin-right: 5%;
 }
+
+/* About */
+
+.about-header {
+  padding: 15px;
+  text-align: center;
+  border: 10px dotted #c2d9ff;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.page-container,
+p {
+  margin-top: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  font-size: large;
+}
+
+.page-container,
+h1 {
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 2em;
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* Login */
 
 .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.login-container,
+h1 {
+  font-size: 1.25em;
 }
 
 label {
@@ -63,24 +161,174 @@ input {
   color: #3e54ac;
 }
 
+/* login or register button */
 button {
-  background-color: #398ab9;
+  background-color: #3e54ac;
+  max-width: fit-content;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #1c658c;
+  background-color: #9d76c1;
 }
 
 .input-button {
-  background-color: #398ab9;
+  background-color: #3e54ac;
   color: white;
   cursor: pointer;
+  margin-left: 3px;
+  margin-right: 3px;
   transition: background-color 0.3s ease;
 }
 
 .input-button:hover {
-  background-color: #1c658c;
+  background-color: #35a29f;
+}
+
+/* Navigation Bar */
+
+.nav-container {
+  background: #c2d9ff;
+  font-family: "Lato";
+  color: #3e54ac;
+  padding: 3% 5% 3% 11%;
+  display: flex;
+  justify-content: center;
+  border: 5px dashed;
+}
+
+.nav-text {
+  font-weight: 300;
+  font-size: 16px;
+  font-weight: 250;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.btn {
+  font-size: 100%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flexbox;
+  flex-direction: row;
+  width: 120px;
+  position: relative;
+  color: white;
+  background: #8e8ffa;
+  padding: 20px 20px;
+  margin: 0 15px;
+  box-shadow: 0 7px #190482;
+  border-radius: 20px;
+}
+
+.btn:hover {
+  box-shadow: 0 4px #190482;
+  top: 2px;
+}
+
+.btn:active {
+  box-shadow: 0 0 #190482;
+  top: 6px;
+}
+
+/* Search */
+
+.search {
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.outline {
+  border: 2px solid #190482;
+  border-radius: 5px;
+}
+
+.outline-highlight {
+  border: 10px dashed #8e8ffa;
+  border-radius: 5px;
+}
+
+.user-profile {
+  background-color: #c2d9ff;
+
+  margin-top: 5px;
+  border: solid #27005d;
+  border-radius: 25px;
+  max-width: fit-content;
+}
+
+.username {
+  color: #27005d;
+  font-weight: 400;
+  margin: auto;
+  padding: 5px;
+}
+
+/* ********************** ToDoList and ToDo ******************** */
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.todo-page {
+  display: flex;
+  font-size: larger;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 80rem;
+}
+
+.list {
+  margin: 2%;
+  padding: 2em;
+  min-width: auto;
+  max-width: 30%;
+}
+
+.memo {
+  display: inline-block;
+  margin-right: 10ßpx;
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px #8e8ffa;
+}
+
+.memo:hover {
+  animation: shake 0.5s ease infinite;
+  text-shadow: 2px 2px 4px #190482;
+}
+
+/* List buttons */
+.bottom > * {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+}
+
+/* Add button */
+.emoji {
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px #c2d9ff;
+  padding-top: 2%;
+  text-decoration: none;
+}
+
+.emoji:hover {
+  animation: shake 0.5s ease infinite;
+  text-shadow: 2px 2px 4px #8e8ffa;
+}
+
+.todo-ribbon {
+  display: flex;
+}
+
+.todo-button {
+  margin-left: 5px;
+  margin-right: 5px;
 }

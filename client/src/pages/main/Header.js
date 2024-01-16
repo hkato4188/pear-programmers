@@ -2,10 +2,8 @@ import React from "react";
 
 function Header() {
   return (
-    <div>
-      <header className="header">
-        <h1>🍐 Programmers</h1>
-      </header>
+    <div className="header animated-header">
+      <span className="pear"> 🍐 </span> Pear Programmers
     </div>
   );
 }

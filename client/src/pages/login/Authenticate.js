@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../context/user";
-import Login from "./Login";
+import LoginPage from "./LoginPage";
 import Main from "../main/Main";
 
 function Authenticate() {
@@ -28,7 +28,7 @@ function Authenticate() {
   if (user) {
     return <Main />;
   } else {
-    return <Login />;
+    return <LoginPage />;
   }
 }
 
