@@ -33,7 +33,8 @@ function Login() {
       },
       body: JSON.stringify(formState),
     };
-
+    console.log("signUp value is: ");
+    console.log(signUp);
     fetch(signUp ? "/signup" : "/login", postRequest)
       .then((r) => r.json())
       .then((userData) => {
