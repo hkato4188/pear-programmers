@@ -11,19 +11,24 @@ function NavBar() {
   }
 
   return (
-    <div>
+    <div className="nav-container">
       {user ? (
-        <NavLink exact to="/">
+        <NavLink className="nav-text btn" exact to="/">
           About
         </NavLink>
       ) : null}
+      {user ? (
+        <NavLink className="nav-text btn" exact to="/todolists">
+          ToDo Lists
+        </NavLink>
+      ) : null}
       {!user ? (
-        <NavLink exact to="/login">
-          Login Signup
+        <NavLink className="nav-text btn" exact to="/login">
+          Login|Signup
         </NavLink>
       ) : null}
       {user ? (
-        <a href="/logout" onClick={handleLogout}>
+        <a className="nav-text btn" href="/logout" onClick={handleLogout}>
           Logout
         </a>
       ) : null}
