@@ -2,7 +2,7 @@
 
 Asynchronous collaboration
 
-(https://www.loom.com/share/0c399c373bbd4badb0720e91f6965e4a?sid=8f304ed8-4dec-4500-a79b-17dd15658627)
+https://www.loom.com/share/0c399c373bbd4badb0720e91f6965e4a?sid=8f304ed8-4dec-4500-a79b-17dd15658627
 
 ## Structure:
 
